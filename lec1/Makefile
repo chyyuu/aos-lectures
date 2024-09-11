@@ -2,7 +2,7 @@ SOURCE = $(wildcard *.tex)
 PDF = $(patsubst %.tex,%.pdf,$(SOURCE))
 
 %.pdf:%.tex
-	xelatex $<
+	xelatex -shell-escape -synctex=1 -interaction=nonstopmode $<
 
 .PHONY:all clean cleanall
 all:$(PDF)
